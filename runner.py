@@ -12,4 +12,4 @@ print(calculate_number_of_permutation(len(input_value), pick))
 # print(permutation(input_value, pick, [], []))
 # print_divider_line("=", calculate_number_of_combination(len(input_value), pick) * pick)
 # print(combination_alt(input_value, pick, 0, [], []))
-
+print(calculate_number_of_permutation(28, 2))
