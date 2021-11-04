@@ -60,7 +60,7 @@ def power_loop(base, exp):
 
 
 if __name__ == "__main__":
-    base_number, exponent = 3, 100000
+    base_number, exponent = 3, 0
     result = power_recursion(base_number, exponent, True)
     logger.info(result)
     result = power_loop(base_number, exponent)
