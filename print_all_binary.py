@@ -7,10 +7,10 @@ def print_all_binary_helper(digits, result):
         logger.info(result)
         return
     else:
-        for i in [0, 1]:
-            result = result + str(i)
-            print_all_binary_helper(digits - 1, result)
-            result = result[:-1]
+        for i in range(2):
+            result = result + str(i)  # Choose
+            print_all_binary_helper(digits - 1, result)  # Explore
+            result = result[:-1]    # Un-choose
 
 
 def print_all_binary(digits):
