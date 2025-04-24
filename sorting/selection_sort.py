@@ -1,5 +1,6 @@
 import sys
 
+
 def selection_sort(arr):
     arr_len = len(arr)
     for k in range(arr_len, 0, -1):
