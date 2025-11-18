@@ -1,17 +1,15 @@
-def selection_sort_simple(arr):
+def insertion_sort(arr):
     arr_len = len(arr)
     for i in range(arr_len - 1):
-        min_idx = i
-        for j in range(i+1, arr_len):
-            if arr[min_idx] > arr[j]:
-                min_idx = j
-        if min_idx != i:
-            arr[i], arr[min_idx] = arr[min_idx], arr[i]
+        key = i+1
+        while (key - 1) >= 0 and arr[key] < arr[key-1]:
+            arr[key], arr[key-1] = arr[key-1], arr[key]
+            key -= 1
 
 
 def display(arr):
     print(f"Before sorting: {arr}")
-    selection_sort_simple(arr)
+    insertion_sort(arr)
     print(f"After sorting: {arr}")
     print("==================================")
 
@@ -21,7 +19,6 @@ def test_sort(arr):
     display(arr)
     assert arr == sorted(original_arr)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     new_arr = [9, 4, 1, 6, 8, 5, 3, 2, 7, 0]
-    test_sort(new_arr)
+    display(new_arr)

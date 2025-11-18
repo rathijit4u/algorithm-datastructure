@@ -4,14 +4,12 @@ This module uses Python's unittest framework to verify the correctness of the re
 selection sort implementation against Python's built-in sorted() function.
 """
 
-
 import unittest
 import random
-from selection_sort import selection_sort, selection_sort_recursive
 from util.function_timer import timer
 
 
-class SortingTest(unittest.TestCase):
+class BaseSortingTest(unittest.TestCase):
     """
     A test case class that tests the recursive selection sort function using various scenarios.
     """
@@ -25,9 +23,7 @@ class SortingTest(unittest.TestCase):
         Args:
             arr (list): The input list to sort and test.
         """
-        sorted_arr = arr.copy()
-        selection_sort_recursive(sorted_arr, len(sorted_arr))
-        self.assertEqual(sorted(arr), sorted_arr)
+        raise NotImplementedError("This is an abstract method. You should implement it.")
 
     def test_sorting_1(self):
         """Test sorting a reverse sorted list."""
@@ -61,7 +57,7 @@ class SortingTest(unittest.TestCase):
 
     def test_sorting_7(self):
         """Test sorting an already sorted list."""
-        arr = [1, 2, 3, 4, 5]
+        arr = [-1000, 0, 1, 2, 3, 4, 5]
         self.sort(arr)
 
     def test_sorting_8(self):
@@ -70,8 +66,8 @@ class SortingTest(unittest.TestCase):
         self.sort(arr)
 
     def test_sorting_9(self):
-        """Test sorting a list of floating point numbers."""
-        arr = list(range(1000))
+        """Test sorting a list of large numbers."""
+        arr = list(range(10000))
         random.shuffle(arr)
         self.sort(arr)
 
